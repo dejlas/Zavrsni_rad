@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Dobrovoljni donori</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+  <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+</form>
+<div class="container">
+  <h1>Dobrovoljni donori</h1>
+
+  <a th:href="@{/register}" class="btn btn-primary btn-sm mb-3">Novi donor</a>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Ime</th>
+      <th scope="col">Prezime</th>
+      <th scope="col">Korisničko ime</th>
+      <th scope="col">Privilegija</th>
+      <th scope="col">Krvna grupa</th>
+<!--      <th scope="col">Datum doniranja</th>-->
+      <th scope="col">Grad</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${userList}">
+      <td scope="row" th:text="${user.name}"></td>
+      <td th:text="${user.surname}"></td>
+      <td th:text="${user.username}"></td>
+      <td th:text="${user.privilege}"></td>
+      <td th:text="${user.bloodType}"></td>
+      <!--                    <td th:text="${user.donatingDate}"></td>-->
+      <td th:text="${user.town}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <form action="#" th:action="@{/donateDate}" th:object="${donatingDate}" method="post">
+    <div class="form-group">
+      <h2>
+        Novi datum doniranja
+      </h2>
+      <label for="username">Username</label>
+      <input type="text"  th:field="*{user.username}" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+      <label for="date">Datum doniranja</label>
+      <input type="date" th:field="*{date}" class="form-control" id="date">
+    </div>
+    <button type="submit" class="btn btn-info col-2">Sačuvaj korisnika</button>
+  </form>
+</div>
+
+</body>
+</html>

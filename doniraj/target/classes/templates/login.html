@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMREhIRExIREBUXEhUWFRcWFRUWFRUVFRUXGBUVFRUYKCggGRolGxUVITEhJSktLi4uFx8zODMsNygvLisBCgoKDg0OGhAQGy8lHiYtLTctNy8tKy03MDUxLSsvNS01Li0uLS0tLS0tLS01LS0tLS0tLS0tLS0rLS0tLS0rLf/AABEIALgBEgMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABQEDBAYHAgj/xABFEAACAQIDBAYIAwQGCwAAAAABAgADEQQhMQUSQVEGEyJhcYEHFDJCUpGhsSNywWKC0fCDkpOisuIVMzRDVHOjs8Lh8f/EABsBAQACAwEBAAAAAAAAAAAAAAABBAIDBQYH/8QALBEBAAICAQMDAQkAAwAAAAAAAAECAxEEBRIhEzFBMhQiUWFxgZGx8Aah4f/aAAwDAQACEQMRAD8A7jERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBLVeqEVmY2CgknkBmTLl5pPpU2z1GDNJT267dWO5NXb5ZfvCRadRtsxY5yXikfLaNi7SXFUKVdLhaiBgDqL8DM+c99D+1N/DPh2Paovl+Spcj5HeE6CDFZ3G058U4slqT8KxESWoiIgIiICIiAiIgIiICWcVW3FZuQl6RO3K2QTzPgNP57oEojXAPMXnqYGx629TAOq5H9JnwEREBERAREQEREBERAREQEREBKGVlDA8s1pwrp1tr1vFOw/1afh0+8A9pvNvoB5dE9JPSD1egaKG1WqCBzVNGbx4Dx7px+nRJ9kXtK2fJrw9D0bhb3mt+yb6DbY9UxdNybI5FOpyAYizHwNvK87uhnzh6q1r7v2nYvR30g9ZwwRzerS7LftL7j+YyPeDI4+SJ8HWuJMazR+7b4lLystPPEREBERAREQEREBERA8u1szNexL77Fjx+3CSm0qvuDz/QSNZYHvZVbcex0aw8+H3MnRNZdZPYDEb6g8dD4iBkxEQEREBERAREQEREBERARKGW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"
+                       style="width: 185px;" alt="logo">
+                  <h6 class="mt-1 mb-5 pb-1">Dobrodošli!</h6>
+                </div>
+
+                <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+
+
+                  <div class="form-group">
+                    <label for="username">Korisničko ime:</label>
+                    <input type="text" th:field="*{username}" class="form-control" id="username"placeholder="Korisničko ime:">
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example22">Lozinka:</label>
+                    <input type="password" id="form2Example22" class="form-control"
+                           name="password" placeholder="Lozinka:"/>
+                  </div>
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                            type="submit">
+                      Prijavite se
+                    </button>
+                  </div>
+
+<!--                  <div class="d-flex align-items-center justify-content-center pb-4">-->
+<!--                    <p class="mb-0 me-2">Don't have an account ?</p>-->
+<!--                    <div>-->
+<!--                      <a th:href="@{/register}" class="btn btn-link">Register</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+
+<!--                  <div th:if="${param.error}" class="alert alert-danger">-->
+<!--                    Invalid username or password.-->
+<!--                  </div>-->
+<!--                  <div th:if="${param.logout}" class="alert alert-danger">-->
+<!--                    You have been logged out.-->
+<!--                  </div>-->
+
+                </form>
+
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-black px-3 py-4 p-md-5 mx-md-4">
+
+                <h4 class="mb-4">Jedna donirana doza krvi može spasiti i do 3 života!</h4>
+
+
+                <br>
+                <br>
+                <p class="small mb-0">Dobrovoljno darovanje krvi, osim humanog gesta, odnosno spašavanja života,
+                ima i brojne prednosti po zdravlje osobe koja donira.</p>
+                <br>
+                <br>
+                <p style="color: Red;">
+                  Hvala Vam na humanosti!
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
